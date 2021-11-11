@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:payment_app/pages/payment_method_screen.dart';
 import 'package:payment_app/router/router.dart';
 
 class HomeScreen extends StatefulWidget {

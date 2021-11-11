@@ -1,7 +1,6 @@
 import 'package:payment_app/domain/model/applicable_links.dart';
 import 'package:payment_app/domain/model/contract_data.dart';
 import 'package:payment_app/domain/model/input_element.dart';
-import 'package:payment_app/domain/model/payment_method_model.dart';
 
 import 'enum_values.dart';
 
