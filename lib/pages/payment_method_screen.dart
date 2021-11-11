@@ -11,9 +11,10 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Payment Methods'),
-        centerTitle: true),
+        appBar: AppBar(
+            title: Text('Payment Methods'),
+            centerTitle: true,
+            backgroundColor: Colors.orangeAccent),
         body: Container(child: Center(child: Text('Hello World'))));
   }
 }

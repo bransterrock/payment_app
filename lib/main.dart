@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:payment_app/pages/home_screen.dart';
+import 'package:payment_app/router/router.dart';
 
 void main() {
+  AppRoutes.createRoutes(); //Create Fluro Routes
   runApp(MyApp());
 }
 
@@ -15,8 +17,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Scaffold(
-        body: HomeScreen()),
+      home: Scaffold(body: HomeScreen()),
+      initialRoute: '/',
     );
   }
 }
