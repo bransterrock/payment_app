@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:payment_app/domain/model/payment_method_model.dart';
 
 class PaymentMethodScreen extends StatefulWidget {
   const PaymentMethodScreen({Key? key}) : super(key: key);

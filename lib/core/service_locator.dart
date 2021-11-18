@@ -9,6 +9,7 @@ class ServiceLocator {
   static Future<void> register({bool testing = false}) async {
    // if (!testing) {
       locator.registerLazySingleton<RestClient>(() => RestClient(Dio()));
+      locator.registerLazySingleton<Client>(() => Client());
   //  }
   }
 }

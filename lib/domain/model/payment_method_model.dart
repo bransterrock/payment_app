@@ -2,8 +2,6 @@
 //
 //     final paymentMethodModel = paymentMethodModelFromJson(jsonString);
 
-import 'dart:convert';
-
 import 'package:payment_app/domain/model/enum_values.dart';
 import 'package:payment_app/domain/model/identification.dart';
 import 'package:payment_app/domain/model/networks.dart';
@@ -11,15 +9,10 @@ import 'package:payment_app/domain/model/payment.dart';
 import 'package:payment_app/domain/model/payment_method_model_links.dart';
 import 'package:payment_app/domain/model/return_code.dart';
 import 'package:payment_app/domain/model/style.dart';
-
+import 'package:retrofit/http.dart';
 import 'interaction.dart';
 
-PaymentMethodModel paymentMethodModelFromJson(String str) =>
-    PaymentMethodModel.fromJson(json.decode(str));
-
-String paymentMethodModelToJson(PaymentMethodModel data) =>
-    json.encode(data.toJson());
-
+@Parser.JsonSerializable
 class PaymentMethodModel {
   PaymentMethodModel({
     required this.links,

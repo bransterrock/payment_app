@@ -1,5 +1,5 @@
 import 'package:payment_app/domain/model/applicable_links.dart';
-import 'package:payment_app/domain/model/contract_data.dart';
+//import 'package:payment_app/domain/model/contract_data.dart';
 import 'package:payment_app/domain/model/input_element.dart';
 
 import 'enum_values.dart';
@@ -17,7 +17,7 @@ class Applicable {
         required this.selected,
         required this.inputElements,
         required this.operationType,
-        required this.contractData,
+       // required this.contractData,
     });
 
     final String code;
@@ -31,7 +31,7 @@ class Applicable {
     final bool selected;
     final List<InputElement>? inputElements;
     final OperationType? operationType;
-    final ContractData contractData;
+   // final ContractData? contractData;
 
     factory Applicable.fromJson(Map<String, dynamic> json) => Applicable(
         code: json["code"],
@@ -45,7 +45,7 @@ class Applicable {
         selected: json["selected"],
         inputElements: json["inputElements"] == null ? null : List<InputElement>.from(json["inputElements"].map((x) => InputElement.fromJson(x))),
         operationType: operationTypeValues.map[json["operationType"]],
-        contractData: ContractData.fromJson(json["contractData"]),
+       // contractData: ContractData.fromJson(json["contractData"])
     );
 
     Map<String, dynamic> toJson() => {
@@ -60,7 +60,7 @@ class Applicable {
         "selected": selected,
         "inputElements": inputElements == null ? null : List<dynamic>.from(inputElements!.map((x) => x.toJson())),
         "operationType": operationTypeValues.reverse[operationType],
-        "contractData": contractData.toJson(),
+       // "contractData": contractData?.toJson(),
     };
 }
 

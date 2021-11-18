@@ -9,7 +9,7 @@ part of 'data_repo.dart';
 class _RestClient implements RestClient {
   _RestClient(this._dio, {this.baseUrl}) {
     baseUrl ??=
-        'https://raw.githubusercontent.com/optile/checkout-android/develop/shared-test/';
+        'https://raw.githubusercontent.com/optile/checkout-android/develop/shared-test';
   }
 
   final Dio _dio;
@@ -25,7 +25,7 @@ class _RestClient implements RestClient {
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<PaymentMethodModel>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/lists/listresult.json',
+                .compose(_dio.options, '/lists',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = PaymentMethodModel.fromJson(_result.data!);
