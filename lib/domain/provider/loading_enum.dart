@@ -1,0 +1,1 @@
+enum RequestEnum{LOADING, SUCCESS, ERROR, COMPLETE}

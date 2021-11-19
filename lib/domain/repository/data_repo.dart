@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:payment_app/domain/model/payment_method_model.dart';
 import 'package:retrofit/retrofit.dart';
@@ -25,7 +26,8 @@ class Client {
     if (response.statusCode == 200) {
       return PaymentMethodModel.fromJson(jsonDecode(response.body));
     } else {
-      return Future.value('Something went wrong');
+      throw SocketException('Something went wrong');
+     // return Future.value('Something went wrong');
     }
   }
 }
