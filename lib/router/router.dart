@@ -18,12 +18,18 @@ class AppRoutes {
   static void createRoutes() {
     router.define('/', handler: Handler(handlerFunc: (context, params) {
       return HomeScreen();
-    }));
+    }),
+        transitionType: TransitionType.fadeIn,
+        transitionDuration: Duration(milliseconds: 1000));
 
     router.define('/payment_screen',
         handler: Handler(handlerFunc: (context, params) {
-      return PaymentMethodScreen(paymentMethodModel: context!.settings!.arguments as PaymentMethodModel);
-    }), transitionType: TransitionType.fadeIn, transitionDuration: Duration(milliseconds: 500));
+      return PaymentMethodScreen(
+          paymentMethodModel:
+              context!.settings!.arguments as PaymentMethodModel);
+    }),
+        transitionType: TransitionType.fadeIn,
+        transitionDuration: Duration(milliseconds: 500));
 
     router.notFoundHandler = Handler(handlerFunc: (context, params) {
       return null;

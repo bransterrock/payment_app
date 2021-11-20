@@ -13,12 +13,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  DataProvider? provider;
+@override
+void initState(){
+  super.initState();
+  provider = DataProvider();
+}
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-        create: (_) => DataProvider(),
+    return ChangeNotifierProvider.value(
+        value: provider,
         builder: (context, snapshot) {
-          return Consumer<DataProvider>(builder: (context, provider, snapshot) {
+          return Consumer<DataProvider>(builder: (context, provider, _) {
             return Center(
                 child: ConditionalSwitch.single(
                     context: context,

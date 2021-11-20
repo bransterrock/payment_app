@@ -1,3 +1,4 @@
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:payment_app/domain/model/payment_method_model.dart';
 
@@ -11,6 +12,18 @@ class PaymentMethodScreen extends StatefulWidget {
 }
 
 class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
+  ConnectivityResult? connectivityResult;
+
+  @override
+  void initState() {
+    super.initState();
+    checkStatus();
+  }
+
+   void checkStatus() async {
+     connectivityResult = await (Connectivity().checkConnectivity());
+   }
+
   @override
   Widget build(BuildContext context) {
     var response = widget.paymentMethodModel;
@@ -39,8 +52,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8)),
                         tileColor: Colors.blueGrey[100],
-                        leading: Image.network(
-                            response.networks.applicable[index].links.logo),
+                        leading: leadingWidget(response, index),
                         trailing: Icon(Icons.menu, color: Colors.white),
                         title: Text(
                           response.networks.applicable[index].label,
@@ -50,4 +62,18 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
               ))),
     );
   }
+
+  Widget leadingWidget(PaymentMethodModel response, int index) {
+    var widget;
+
+    if (connectivityResult == ConnectivityResult.none) {
+      widget = Icon(Icons.not_interested, color: Colors.white);
+    } else {
+      widget = Image.network(response.networks.applicable[index].links.logo);
+    }
+
+    return widget;
+  }
+
+ 
 }
