@@ -19,7 +19,6 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     provider = DataProvider();
   }
-
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider.value(

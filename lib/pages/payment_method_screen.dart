@@ -11,7 +11,8 @@ class PaymentMethodScreen extends StatefulWidget {
   _PaymentMethodScreenState createState() => _PaymentMethodScreenState();
 }
 
-class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
+class _PaymentMethodScreenState extends State<PaymentMethodScreen>
+    with AutomaticKeepAliveClientMixin {
   ConnectivityResult? connectivityResult;
 
   @override
@@ -20,12 +21,16 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
     checkStatus();
   }
 
-   void checkStatus() async {
-     connectivityResult = await (Connectivity().checkConnectivity());
-   }
+  @override
+  bool get wantKeepAlive => true;
+
+  void checkStatus() async {
+    connectivityResult = await (Connectivity().checkConnectivity());
+  }
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     var response = widget.paymentMethodModel;
     return WillPopScope(
       onWillPop: () {
@@ -74,6 +79,4 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
 
     return widget;
   }
-
- 
 }
