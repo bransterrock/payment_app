@@ -11,11 +11,10 @@ class DataProvider extends ChangeNotifier {
   final Client newClient = ServiceLocator.locator<Client>();
   RequestEnum requestEnum = RequestEnum.COMPLETE;
   
-  Future<PaymentMethodModel> getData() async {
+  Future<dynamic> getData() async {
     var data;
     try {
       setEnum(RequestEnum.LOADING);
-      notifyListeners();
 
       data = await newClient.dataModel();
       cachedData = data;
@@ -24,7 +23,6 @@ class DataProvider extends ChangeNotifier {
       print(error.message);
       
       setEnum(RequestEnum.ERROR);
-      notifyListeners();
     }
     return Future.value(data);
   }
