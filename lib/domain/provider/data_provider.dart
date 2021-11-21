@@ -8,7 +8,7 @@ import 'package:payment_app/domain/repository/data_repo.dart';
 
 class DataProvider extends ChangeNotifier {
   PaymentMethodModel? cachedData;
-  final Client newClient = ServiceLocator.locator<Client>();
+  Client newClient = ServiceLocator.locator<Client>();
   RequestEnum requestEnum = RequestEnum.COMPLETE;
   
   Future<PaymentMethodModel> getData() async {
