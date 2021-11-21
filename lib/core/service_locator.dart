@@ -6,8 +6,8 @@ import 'package:payment_app/domain/repository/data_repo.dart';
 class ServiceLocator {
   static final locator = GetIt.instance;
   static Future<void> register({bool testing = false}) async {
-    // if (!testing) {
-    locator.registerLazySingleton<Client>(() => Client());
-    //  }
+    if (!testing) {
+      locator.registerLazySingleton<Client>(() => Client());
+    }
   }
 }
