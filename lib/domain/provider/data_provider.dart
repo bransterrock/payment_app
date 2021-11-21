@@ -10,7 +10,8 @@ class DataProvider extends ChangeNotifier {
   PaymentMethodModel? cachedData;
   Client newClient = ServiceLocator.locator<Client>();
   RequestEnum requestEnum = RequestEnum.COMPLETE;
-  
+
+  //method that makes network call
   Future<dynamic> getData() async {
     var data;
     try {
@@ -18,16 +19,16 @@ class DataProvider extends ChangeNotifier {
 
       data = await newClient.dataModel();
       cachedData = data;
-
     } on SocketException catch (error) {
       print(error.message);
-      
+
       setEnum(RequestEnum.ERROR);
     }
     return Future.value(data);
   }
 
-  void setEnum(RequestEnum requestEnum){
+//used to set the different states during the network calls
+  void setEnum(RequestEnum requestEnum) {
     this.requestEnum = requestEnum;
     notifyListeners();
   }

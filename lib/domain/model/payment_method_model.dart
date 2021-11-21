@@ -81,7 +81,3 @@ class PaymentMethodModel {
         "integrationType": integrationType,
       };
 }
-
-
-
-

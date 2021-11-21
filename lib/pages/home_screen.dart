@@ -19,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     provider = DataProvider();
   }
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider.value(
@@ -57,8 +58,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         color: Colors.orangeAccent,
                                         borderRadius: BorderRadius.circular(8)),
                                     child: Text('Payment Methods',
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
                                             fontSize: 16,
                                             color: Colors.white,

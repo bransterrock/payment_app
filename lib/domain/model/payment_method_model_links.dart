@@ -1,19 +1,20 @@
 class PaymentMethodModelLinks {
-    PaymentMethodModelLinks({
-        required this.self,
-        required this.lang,
-    });
+  PaymentMethodModelLinks({
+    required this.self,
+    required this.lang,
+  });
 
-    final String self;
-    final String lang;
+  final String self;
+  final String lang;
 
-    factory PaymentMethodModelLinks.fromJson(Map<String, dynamic> json) => PaymentMethodModelLinks(
+  factory PaymentMethodModelLinks.fromJson(Map<String, dynamic> json) =>
+      PaymentMethodModelLinks(
         self: json["self"],
         lang: json["lang"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "self": self,
         "lang": lang,
-    };
+      };
 }
