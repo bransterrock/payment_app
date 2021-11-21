@@ -11,7 +11,7 @@ class DataProvider extends ChangeNotifier {
   Client newClient = ServiceLocator.locator<Client>();
   RequestEnum requestEnum = RequestEnum.COMPLETE;
   
-  Future<PaymentMethodModel> getData() async {
+  Future<dynamic> getData() async {
     var data;
     try {
       setEnum(RequestEnum.LOADING);

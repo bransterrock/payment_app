@@ -8,9 +8,33 @@
 ```engine='sh'
 cd path/to-your-project
 flutter pub get 
-flutter run
+flutter run --release
+```
+## Build Instruction for iOS Development
+
+1. Install [Flutter](https://flutter.dev/docs/get-started/install) SDK on local machine *Ensure to get Flutter version 1.22.6*
+2. Install [XCode](https://developer.apple.com/xcode/resources/) on local machine *Ensure to install Xcode version 12.3*
+3. Clone the repo
+4. Install [Cocoapods](https://medium.com/p-society/cocoapods-on-apple-silicon-m1-computers-86e05aa10d3e)
+5. Set up project using:
+
+```engine='sh'
+cd path/your-project
+flutter pub get 
+cd ios
+pod install
+cd ..
+flutter run --release
 ```
 
+**Note**: You need an emulator or a device connected to use **flutter run**
+**Attention**: In order to run an android emulator on an M1 silicon Mac you will need to install: [Standalone Android Emulator](https://github.com/google/android-emulator-m1-preview)
+
+### To run app in regular/default mode
+
+```sh
+flutter run
+```
 ## Design Pattern 
 The design pattern currently being use is based on the **Domain Driven Design (DDD)** where features are grouped under a single domain and this helps our code to be more:
 

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:payment_app/domain/model/payment_method_model.dart';
@@ -71,12 +73,17 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen>
   }
 
   Widget leadingWidget(PaymentMethodModel response, int index) {
-    var widget;
+    dynamic widget = Icon(Icons.not_interested, color: Colors.white);
 
     if (connectivityResult == ConnectivityResult.none) {
       widget = Icon(Icons.not_interested, color: Colors.white);
     } else {
-      widget = Image.network(response.networks.applicable[index].links.logo);
+      try {
+        widget = Image.network(response.networks.applicable[index].links.logo);
+      } on SocketException catch (error) {
+        print(error.message);
+        widget = Icon(Icons.not_interested, color: Colors.white);
+      }
     }
 
     return widget;
