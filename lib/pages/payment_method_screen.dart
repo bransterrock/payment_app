@@ -61,6 +61,8 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen>
                         trailing: Icon(Icons.menu, color: Colors.white),
                         title: Text(
                           response.networks.applicable[index].label,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                         )),
                   );
                 },

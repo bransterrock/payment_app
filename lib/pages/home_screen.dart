@@ -48,17 +48,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                   'assets/images/logo.png',
                                   filterQuality: FilterQuality.high,
                                 )),
-                            GestureDetector(
+                            InkWell(
                                 child: Container(
                                     alignment: Alignment.center,
                                     height: 40,
-                                    width: 120,
+                                    width: 140,
                                     decoration: BoxDecoration(
                                         color: Colors.orangeAccent,
                                         borderRadius: BorderRadius.circular(8)),
-                                    child: Text('Get Pay',
+                                    child: Text('Payment Methods',
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: 16,
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold))),
                                 onTap: () async {
