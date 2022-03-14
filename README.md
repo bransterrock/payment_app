@@ -1,4 +1,5 @@
 # Payment App
+This sample app collects data from an external api and displays different payment options to the user while caching the info for offline use.
 ## Build Instructions For Windows
 
 1. Install [Flutter](https://flutter.dev/docs/get-started/install) SDK on local machine. (The Flutter stable channel was used in the making of this project)
